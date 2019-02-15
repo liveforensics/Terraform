@@ -1,3 +1,10 @@
+provider "azurerm" {
+  subscription_id = "c0c94277-27db-4692-9b5e-e561f9ab3d2c"
+  client_id       = "06247fef-6b94-47a0-8bd3-fc83315c444f"
+  client_secret   = "8abdf361-f31c-459c-b2cd-871892d0c404"
+  tenant_id       = "4e73027a-db9b-4958-9a63-06330ea6e88f"
+}
+
 resource "azurerm_resource_group" "rg" {
         name = "marksResourceGroup"
         location = "uksouth"
