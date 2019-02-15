@@ -1,0 +1,37 @@
+# make sure you've installed the azure cli
+# az login
+# az account list
+# az account set --subscription="xxxx"
+# az ad sp create-for-rbac --name markEnterprise --subscription "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+#   appId is the client_id
+#   password is the client_secret
+#   tenant is the tenant_id
+
+
+# Visual Studio Enterprise xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+# subscription_id = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+# client_id       = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+# client_secret   = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+# tenant_id       = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+
+# Visual Studio Premium with MSDN xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+subscription_id = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+client_id       = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+client_secret   = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+tenant_id       = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+
+# Visual Studio Premium with MSDN xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+# subscription_id = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+# client_id       = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+# client_secret   = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+# tenant_id       = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+
+
+# Windows Azure MSDN - Visual Studio Premium xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+# subscription_id = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+# client_id       = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+# client_secret   = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+# tenant_id       = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+
+
+
