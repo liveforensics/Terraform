@@ -8,7 +8,12 @@ provider "vsphere" {
 }
 
 # create a folder
+
+data "vsphere_datacenter" "Datacenter" {}
+
 resource "vsphere_folder" "TerraformFrontEnd" {
-  datacenter = "Datacenter"
-  path = "TerraformFrontEnd"
+  path          = "TerraformFrontEnd"
+  type          = "vm"
+  datacenter_id = "${data.vsphere_datacenter.Datacenter.id}"
 }
+
