@@ -9,12 +9,16 @@ provider "vsphere" {
 
 # create a folder
 
-data "vsphere_datacenter" "Datacenter" {}
+data "vsphere_datacenter" "dc" {}
+data "vsphere_network" "network" {
+  name          = "public"
+  datacenter_id = "${data.vsphere_datacenter.dc.id}"
+}
 
 resource "vsphere_folder" "TerraformFrontEnd" {
   path          = "TerraformFrontEnd"
   type          = "vm"
-  datacenter_id = "${data.vsphere_datacenter.Datacenter.id}"
+  datacenter_id = "${data.vsphere_datacenter.dc.id}"
 }
 
 # now create a vm in that folder
@@ -23,16 +27,18 @@ resource "vsphere_virtual_machine" "terraform-web" {
   folder = "${vsphere_folder.TerraformFrontEnd.path}"
   vcpu = 2
   memory = 4096
-  datacenter_id = "${data.vsphere_datacenter.Datacenter.id}"
+  datacenter_id = "${data.vsphere_datacenter.dc.id}"
   cluster = "Resources"
 
 
-network-interface {
-    label = "DPortGroup"
-}
+    network_interface {
+        network_id   = "${data.vsphere_network.public.id}"
+    }
 
-disk {
-    datastore = "datastore1"
-    template = "Windows 7vcx"
-}
+    disk {
+    label            = "disk0"
+    size             = "${data.vsphere_virtual_machine.template.disks.0.size}"
+    eagerly_scrub    = "${data.vsphere_virtual_machine.template.disks.0.eagerly_scrub}"
+    thin_provisioned = "${data.vsphere_virtual_machine.template.disks.0.thin_provisioned}"
+  }
 }
