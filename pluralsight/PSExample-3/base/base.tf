@@ -17,3 +17,22 @@ resource "vsphere_folder" "TerraformFrontEnd" {
   datacenter_id = "${data.vsphere_datacenter.Datacenter.id}"
 }
 
+# now create a vm in that folder
+resource "vsphere_virtual_machine" "terraform-web" {
+  name = "terraform-web"
+  folder = "${vsphere_folder.TerraformFrontEnd.path}"
+  vcpu = 2
+  memory = 4096
+  datacenter_id = "${data.vsphere_datacenter.Datacenter.id}"
+  cluster = "Resources"
+
+
+network-interface {
+    label = "DPortGroup"
+}
+
+disk {
+    datastore = "datastore1"
+    template = "Windows 7vcx"
+}
+}
