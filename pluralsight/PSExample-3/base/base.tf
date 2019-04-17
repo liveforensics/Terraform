@@ -27,12 +27,12 @@ resource "vsphere_folder" "TerraformFrontEnd" {
 # now create a vm in that folder
 resource "vsphere_virtual_machine" "terraform-web" {
   name = "terraform-web"
+  resource_pool_id = "${data.vsphere_datacenter.dc.id}"
   folder = "${vsphere_folder.TerraformFrontEnd.path}"
-  vcpu = 2
+  num_cpus = 2
   memory = 4096
-  datacenter_id = "${data.vsphere_datacenter.dc.id}"
-  cluster = "Resources"
-
+  
+  
 
     network_interface {
         network_id   = "${data.vsphere_network.public.id}"
