@@ -10,8 +10,8 @@ provider "vsphere" {
 # create a folder
 
 data "vsphere_datacenter" "dc" {}
-data "vsphere_network" "network" {
-  name          = "public"
+data "vsphere_network" "public" {
+  name          = "VM Network"
   datacenter_id = "${data.vsphere_datacenter.dc.id}"
 }
 data "vsphere_virtual_machine" "template" {
