@@ -14,7 +14,10 @@ data "vsphere_network" "network" {
   name          = "public"
   datacenter_id = "${data.vsphere_datacenter.dc.id}"
 }
-
+data "vsphere_virtual_machine" "template" {
+  name          = "Windows 7vcx"
+  datacenter_id = "${data.vsphere_datacenter.dc.id}"
+}
 resource "vsphere_folder" "TerraformFrontEnd" {
   path          = "TerraformFrontEnd"
   type          = "vm"
