@@ -2,8 +2,8 @@
 
 provider "vsphere" {
     user = "pluralsight@vsphere.local"
-    password = "P@ssw0rd"
-    vsphere_server = "192.168.0.30"
+    password = "passw0rd"
+    vsphere_server = "192.168.0.211"
     allow_unverified_ssl = true
 }
 
