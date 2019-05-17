@@ -80,6 +80,7 @@ resource "vsphere_virtual_machine" "vm1" {
     }
     provisioner "remote_exec" {
         connection {
+            host = "${self.guest_ip_addresses.0}"
             type = "winrm"
             user = "administrator"
             password = "password"            
@@ -97,4 +98,17 @@ resource "vsphere_virtual_machine" "vm1" {
             password = "password"
         }
     }
+    ## example of remotely running powershell script
+    # provisioner "remote_exec" {
+    #     connection {
+    #         host = "${self.guest_ip_addresses.0}"
+    #         type = "winrm"
+    #         user = "administrator"
+    #         password = "password"            
+    #     }
+    #     inline = [
+    #         "cmd /C \"powershell.exe set-executionpolicy remotesigned\"",
+    #         "cmd /C \"powershell.exe c:/installer.ps1\""]
+    # }
+
 }
