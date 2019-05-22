@@ -1,0 +1,26 @@
+pipeline {
+    agent any
+    tools {
+        "org.jenkinsci.plugins.terraform.TerraformInstallation" "terraform-0.11.13"
+    }
+    parameters {
+        string(name: 'LAMBDA_URL', defaultValue: '', description: 'URL to the Lamdba function')
+        string(name: 'WORKSPACE', defaultValue: 'development', description:'workspace to use in Terraform')
+    }
+    environment {
+        TF_HOME = tool('terraform-0.11.13')
+        TF_IN_AUTOMATION = "true"
+        PATH = "$TF_HOME:$PATH"
+    }
+    stages {
+        stage('NetworkInit'){
+            steps {
+                dir('Terraform-Skool/Exercise3/'){
+                    sh 'terraform --version'
+                    sh "echo \$PWD"
+                    sh "whoami"
+                }
+            }
+        }
+    }
+}
