@@ -47,8 +47,11 @@ pipeline {
                         apply = true
                     } catch (err) {
                         apply = false
-                        sh "terraform destroy -var 'username=$VSPHERE_LOGON_USR' -var 'password=$VSPHERE_LOGON_PSW' -force"
-                        currentBuild.result = 'UNSTABLE'
+                        dir('Terraform-Skool/Exercise3/'){
+                            unstash "terraform-networking-plan"
+                            sh "terraform destroy -var 'username=$VSPHERE_LOGON_USR' -var 'password=$VSPHERE_LOGON_PSW' -force"
+                            currentBuild.result = 'UNSTABLE'
+                        }                        
                     }
                     if(apply){
                         dir('Terraform-Skool/Exercise3/'){
