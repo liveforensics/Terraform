@@ -10,17 +10,17 @@ data "vsphere_datacenter" "dc" {
     name = "Datacenter"
 }
 data "vsphere_host" "host" {
-    name = "192.168.0.30"
+    name = "192.168.0.21"
     datacenter_id = "${data.vsphere_datacenter.dc.id}"
 }
 data "vsphere_datastore" "datastore" {
-    name = "whatshisname"
+    name = "datastore1"
     datacenter_id = "${data.vsphere_datacenter.dc.id}"
 }
-data "vsphere_resource_pool" "pool" {
-    name = "192.168.0.30/Resources"
-    datacenter_id = "${data.vsphere_datacenter.dc.id}"
-}
+# data "vsphere_resource_pool" "pool" {
+#     name = "192.168.0.30/Resources"
+#     datacenter_id = "${data.vsphere_datacenter.dc.id}"
+# }
 resource "vsphere_host_virtual_switch" "switch" {
     name = "vSwitchTest"
     host_system_id = "${data.vsphere_host.host.id}"

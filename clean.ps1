@@ -1,1 +1,1 @@
-terraform destroy -auto-approve
+terraform destroy --var-file="..\Common\terraform.tfvars" -auto-approve
