@@ -1,5 +1,5 @@
 #List of plugins
-$plugins = @("terraform-provider-aws","terraform-provider-external","terraform-provider-template","terraform-provider-terraform")
+$plugins = @("terraform-provider-aws","terraform-provider-external","terraform-provider-template","terraform-provider-terraform", "terraform-provider-vsphere", "terraform-provider-bitbucket")
 #Folder for plugins
 $folderpath = ".\terraform_plugins"
 #Set to TLS 1.2
@@ -21,8 +21,8 @@ foreach($plugin in $plugins){
     Invoke-WebRequest -Uri "https://releases.hashicorp.com/$downloadPath" -OutFile "$folderpath\$fileName"
 }
 
-$pluginFiles = Get-ChildItem -Path $folderpath
-foreach($pluginFile in $pluginFiles){
-    Expand-Archive -Path $pluginFile.FullName -DestinationPath $pluginFile.Directory
-    Remove-Item $pluginFile.FullName
-}
+# $pluginFiles = Get-ChildItem -Path $folderpath
+# foreach($pluginFile in $pluginFiles){
+#     Expand-Archive -Path $pluginFile.FullName -DestinationPath $pluginFile.Directory
+#     Remove-Item $pluginFile.FullName
+# }
