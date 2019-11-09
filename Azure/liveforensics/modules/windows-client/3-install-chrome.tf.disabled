@@ -1,0 +1,15 @@
+resource "null_resource" "intall-chrome-on-client" {
+  provisioner "remote-exec" {
+    command = <<EOT
+        Write-Host "Installing Chrome"
+        Start-Process -FilePath c:\temp\ChromeStandaloneSetup64.exe -Args "/silent /install" -Verb RunAs -Wait
+        Remove-Item -Force c:\temp\ChromeStandaloneSetup64.exe
+        Write-Host "Finished Installing Chrome.."
+    EOT
+    
+    interpreter = ["PowerShell", "-Command"]
+  }
+
+  depends_on = ["azurerm_virtual_machine.client"]
+}
+# https://www.google.com/intl/en/chrome/thank-you.html?standalone=1&statcb=0&installdataindex=empty&defaultbrowser=0#

@@ -6,10 +6,11 @@ provider "azurerm" {
 }
 
 resource "azurerm_resource_group" "rg" {
-        name = "${var.prefix}RG"
-        location = "${var.location}"
+  name     = "marksResourceGroup"
+  location = "${var.home_location}"
 
-        tags {
-        environment = "${var.environment_id}"
-    }
+  tags = {
+    environment = "${var.environment_tag}"
+  }
 }
+

@@ -17,5 +17,8 @@ variable "client_secret" {
   type    = "string"
   default = "wontwork"
 }
-
+variable "prefix" {
+  description = "The Prefix used for the Windows Client resources"
+  default     = "liveforensics"
+}
  
