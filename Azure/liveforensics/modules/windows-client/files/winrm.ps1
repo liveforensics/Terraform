@@ -22,3 +22,4 @@ Enable-PSRemoting -Force
 Write-Host "Open Firewall Port"
 netsh advfirewall firewall add rule name="Windows Remote Management (HTTPS-In)" dir=in action=allow protocol=TCP localport=5985
 Start-Service "WinRM"
+Set-NetFirewallRule -DisplayGroup "Windows Remote Management" -Enabled True -Profile Public

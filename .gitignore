@@ -10,3 +10,4 @@
 *.tfvars
 *.exe
 *.msi
+**/terraform.tfplan
