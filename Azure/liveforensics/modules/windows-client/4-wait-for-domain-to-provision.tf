@@ -6,7 +6,7 @@ resource "null_resource" "wait-for-domain-to-provision" {
   provisioner "local-exec" {
     command = <<EOT
       Write-Host "Waiting for Domain to Provision"
-      Start-Sleep 360
+      Start-Sleep 480
       Write-Host "Fed Up Waiting Now.."
     EOT
 

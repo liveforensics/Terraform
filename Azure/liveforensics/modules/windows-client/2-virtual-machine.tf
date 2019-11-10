@@ -53,9 +53,29 @@ resource "azurerm_virtual_machine" "client" {
       content      = "${file("${path.module}/files/FirstLogonCommands.xml")}"
     }
   }
-  # Copies all files and folders in apps/app1 to D:/IIS/webapp1
-  provisioner "file" {
-    source      = "downloads/"
-    destination = "C:/Users/colin/Downloads"
-  }
+  # connection {
+  #   type     = "winrm"
+  #   user     = "${var.admin_username}"
+  #   password = "${var.admin_password}"
+  #   insecure = true
+  #   port     = 5985
+  #   https    = true
+  #   host     = "${azurerm_public_ip.static.ip_address}"
+  #   timeout  = "5m"
+  # }
+  # # Copies all files and folders in apps/app1 to D:/IIS/webapp1
+  # provisioner "file" {
+  #   source      = "downloads/"
+  #   destination = "C:/Users/colin/Downloads"
+  # }
 }
+# connection {
+#       user     = "${local.admin_username}"
+#       password = "${local.admin_password}"
+#       port     = 5985
+#       https    = true
+#       timeout  = "10m"
+
+#       # NOTE: if you're using a real certificate, rather than a self-signed one, you'll want this set to `false`/to remove this.
+#       insecure = true
+#     }
