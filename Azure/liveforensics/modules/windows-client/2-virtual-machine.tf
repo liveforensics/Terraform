@@ -53,6 +53,7 @@ resource "azurerm_virtual_machine" "client" {
       content      = "${file("${path.module}/files/FirstLogonCommands.xml")}"
     }
   }
+
   # connection {
   #   type     = "winrm"
   #   user     = "${var.admin_username}"
@@ -67,6 +68,13 @@ resource "azurerm_virtual_machine" "client" {
   # provisioner "file" {
   #   source      = "downloads/"
   #   destination = "C:/Users/colin/Downloads"
+  #   connection {
+  #     host     = "loveforensics.ukwest.cloudapp.azure.com"
+  #     type     = "winrm"
+  #     user     = "${var.admin_username}"
+  #     password = "${var.admin_password}"
+  #     timeout  = "10m"
+  #   }
   # }
 }
 # connection {
