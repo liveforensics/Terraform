@@ -1,3 +1,4 @@
+Set-Location E:\code\github\terraform\Azure\liveforensics
 $raw = get-content -raw -path terraform.tfstate 
 $json = convertfrom-json $raw
 foreach($item in $json.resources)

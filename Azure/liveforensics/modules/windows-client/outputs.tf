@@ -7,3 +7,6 @@ output "admin_username" {
 output "admin_password" {
   value = "${var.admin_password}"
 }
+output "public_fqdn" {
+  value = "${azurerm_public_ip.static.fqdn}"
+}
