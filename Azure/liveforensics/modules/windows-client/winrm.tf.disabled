@@ -21,9 +21,10 @@ data "template_file" "setup_ps1" {
 
   To check if winrm is listening:
   curl --header "Content-Type: application/soap+xml;charset=UTF-8" --header "WSMANIDENTIFY: unauthenticated" --insecure https://<ip-address>:5986/wsman --data '&lt;s:Envelope xmlns:s="http://www.w3.org/2003/05/soap-envelope" xmlns:wsmid="http://schemas.dmtf.org/wbem/wsman/identity/1/wsmanidentity.xsd"&gt;&lt;s:Header/&gt;&lt;s:Body&gt;&lt;wsmid:Identify/&gt;&lt;/s:Body&gt;&lt;/s:Envelope&gt;'
+  curl --header "Content-Type: application/soap+xml;charset=UTF-8" --header "WSMANIDENTIFY: unauthenticated" --insecure http://loveforensics.ukwest.cloudapp.azure.com:5985/wsman --data '&lt;s:Envelope xmlns:s="http://www.w3.org/2003/05/soap-envelope" xmlns:wsmid="http://schemas.dmtf.org/wbem/wsman/identity/1/wsmanidentity.xsd"&gt;&lt;s:Header/&gt;&lt;s:Body&gt;&lt;wsmid:Identify/&gt;&lt;/s:Body&gt;&lt;/s:Envelope&gt;'
 
   To check winrm with authentication:
-  curl --header "Content-Type: application/soap+xml;charset=UTF-8" --insecure https://<ip-address>:5986/wsman --basic  -u opc:password --data '&lt;s:Envelope xmlns:s="http://www.w3.org/2003/05/soap-envelope" xmlns:wsmid="http://schemas.dmtf.org/wbem/wsman/identity/1/wsmanidentity.xsd"&gt;&lt;s:Header/&gt;&lt;s:Body&gt;&lt;wsmid:Identify/&gt;&lt;/s:Body&gt;&lt;/s:Envelope&gt;'
+  curl --header "Content-Type: application/soap+xml;charset=UTF-8" --insecure https://loveforensics.ukwest.cloudapp.azure.com:5986/wsman --basic  -u user:pw --data '&lt;s:Envelope xmlns:s="http://www.w3.org/2003/05/soap-envelope" xmlns:wsmid="http://schemas.dmtf.org/wbem/wsman/identity/1/wsmanidentity.xsd"&gt;&lt;s:Header/&gt;&lt;s:Body&gt;&lt;wsmid:Identify/&gt;&lt;/s:Body&gt;&lt;/s:Envelope&gt;'
 
   Using winrm-cli from https://github.com/masterzen/winrm-cli that uses same underlying library that Terraform uses: https://github.com/masterzen/winrm
   ./winrm -hostname <ip-address> -username "opc" -password "password" -https -insecure "ipconfig /all"
