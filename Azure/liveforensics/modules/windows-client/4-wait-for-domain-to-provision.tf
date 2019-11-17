@@ -6,11 +6,11 @@ resource "null_resource" "wait-for-domain-to-provision" {
   provisioner "local-exec" {
     command = <<EOT
       Write-Host "Waiting for Domain to Provision"
-      Start-Sleep 720
+      Start-Sleep 120
       Write-Host "Fed Up Waiting Now.."
     EOT
 
-    interpreter = ["pwsh", "-Command"]
+    interpreter = ["powershell", "-Command"]
   }
 
   depends_on = ["azurerm_virtual_machine.client"]
