@@ -78,26 +78,26 @@ resource "vsphere_virtual_machine" "vm1" {
       }
     }
   }
-  provisioner "remote_exec" {
-    connection {
-      host     = "${self.guest_ip_addresses.0}"
-      type     = "winrm"
-      user     = "administrator"
-      password = "password"
-    }
-    inline = [
-      "net user cedric /add",
-    "net localgroup administrators cedric /add"]
-  }
-  provisioner "file" {
-    source      = "variables.tf"
-    destination = "c:/temp/variables.tf"
-    connection {
-      type     = "winrm"
-      user     = "administrator"
-      password = "password"
-    }
-  }
+  # provisioner "remote_exec" {
+  #   connection {
+  #     host     = "${self.guest_ip_addresses.0}"
+  #     type     = "winrm"
+  #     user     = "administrator"
+  #     password = "password"
+  #   }
+  #   inline = [
+  #     "net user cedric /add",
+  #   "net localgroup administrators cedric /add"]
+  # }
+  # provisioner "file" {
+  #   source      = "variables.tf"
+  #   destination = "c:/temp/variables.tf"
+  #   connection {
+  #     type     = "winrm"
+  #     user     = "administrator"
+  #     password = "password"
+  #   }
+  # }
   ## example of remotely running powershell script
   # provisioner "remote_exec" {
   #     connection {
