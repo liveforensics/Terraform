@@ -35,7 +35,7 @@ resource "vsphere_virtual_machine" "Win10Client" {
     customize {
       # windows_sysprep_text = "${file("${path.module}/files/FirstLogonCommands.xml")}"
       windows_options {
-        computer_name    = "${var.admin_username}"
+        computer_name    = "terraformed"
         admin_password   = "${var.admin_password}"
         workgroup        = "terraformsucks"
         auto_logon       = true
