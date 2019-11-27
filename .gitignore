@@ -11,3 +11,5 @@
 *.exe
 *.msi
 **/terraform.tfplan
+outputs.txt
+outputs.json
