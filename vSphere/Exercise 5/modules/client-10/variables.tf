@@ -1,6 +1,7 @@
 variable "datacentre_id" {}
 
-variable "folder_name" {}
+# variable "folder_id" {}
+# variable "switch_id" {}
 variable "resource_pool_id" {}
 variable "datastore_id" {}
 variable "network_name" {}
