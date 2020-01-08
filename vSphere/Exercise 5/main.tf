@@ -6,7 +6,7 @@
 #   datacentre_id = "${data.vsphere_datacenter.dc.id}"
 #   folder_name   = "${var.folder_name}"
 # }
-
+#
 # module "network" {
 #   source        = "./modules/network"
 #   datacentre_id = "${data.vsphere_datacenter.dc.id}"
